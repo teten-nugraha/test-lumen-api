@@ -35,5 +35,5 @@ $app->group(['prefix' => 'api/v1','middleware' => 'auth'], function () use ($app
     $app->delete('/templates/{id}', 'TemplateController@destroy');
 
     $app->post('/checklists', 'ChecklistController@store');
-
+    $app->get('/checklists/{id}', 'ChecklistController@show');
 });
