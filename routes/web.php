@@ -22,4 +22,18 @@ $app->group(['prefix' => 'api/'], function ($app) {
     $app->get('todo/{id}/', 'TodoController@show');
     $app->put('todo/{id}/', 'TodoController@update');
     $app->delete('todo/{id}/', 'TodoController@destroy');
+
+
+});
+
+$app->group(['prefix' => 'api/v1','middleware' => 'auth'], function () use ($app) {
+    
+    $app->get('/templates', 'TemplateController@index');
+    $app->post('/templates', 'TemplateController@store');
+    $app->get('/templates/{id}', 'TemplateController@show');
+    $app->post('/templates/{id}', 'TemplateController@update');
+    $app->delete('/templates/{id}', 'TemplateController@destroy');
+
+    // $router->post('/checklists', 'ChecklistController@store');
+
 });
