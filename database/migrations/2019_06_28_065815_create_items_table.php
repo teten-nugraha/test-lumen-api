@@ -16,10 +16,11 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('checklist_id')->unsigned();
-            $table->string('description');
-            $table->integer('urgency');
-            $table->integer('due_interval');
-            $table->string('due_unit');
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->integer('urgency')->nullable();
+            $table->integer('due_interval')->nullable();
+            $table->string('due_unit')->nullable();
             $table->timestamps();
 
             $table->foreign('checklist_id')->references('id')->on('checklists');

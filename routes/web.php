@@ -34,6 +34,6 @@ $app->group(['prefix' => 'api/v1','middleware' => 'auth'], function () use ($app
     $app->post('/templates/{id}', 'TemplateController@update');
     $app->delete('/templates/{id}', 'TemplateController@destroy');
 
-    // $router->post('/checklists', 'ChecklistController@store');
+    $app->post('/checklists', 'ChecklistController@store');
 
 });
